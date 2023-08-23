@@ -25,9 +25,9 @@ Route::get('/dashboard',[AdminController::class, 'dashboard']);
 Route::get('/registration',[AdminController::class, 'display']);
 Route::post('/registration',[AdminController::class, 'store']);
 Route::get('/list',[AdminController::class, 'list']);
-
-// Route::get('edit/{user}',[AdminController::class, 'data']);
-// Route::put('{user}',[AdminController::class, 'edit']);
+Route::get('/edit/{user}',[AdminController::class, 'data']);
+Route::put('/edit/{user}',[AdminController::class, 'edit']);
+Route::delete('/delete/{user}', [AdminController::class, 'destroy']);
 
 Route::get('/student', [StudentController::class, 'display']);
 Route::post('/student', [StudentController::class, 'store']);

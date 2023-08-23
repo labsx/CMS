@@ -62,23 +62,27 @@ class AdminController extends Controller
         return view ('staff.list', $data);
     }
 
-    // public function data($id){
-    //     $data = User::findOrFail($id);
-    //     return view('staff.edit',['user' => $data]);
-    // }
+    public function data($id){
+        $data = User::findOrFail($id);
+        return view('staff.edit',['user' => $data]);
+    }
 
-    // public function edit(Request $request, User $user){
-    //     dd($request);
-    //     $validated = $request->validate([
-    //         "name" => ['required', 'min:5', 'max:255'],
-    //         "email" => ['required','email', Rule::unique('users', 'email')] ,
-    //         "password" =>['required','min:4'] ,
+    public function edit(Request $request, User $user){
+    
+        $validated = $request->validate([
+            "name" => ['required', 'min:5', 'max:255'],
+            "email" => ['required','email', Rule::unique('users', 'email')] ,
+            "password" =>['required','min:4'] ,
             
-    //     ]);
-       
+        ]);
 
-    //     $user->update($validated);
-    //     return back()->with('message', 'Update Data successfully!');
-    // }
+        $user->update($validated);
+        return back()->with('message', 'Update Data successfully!');
+    }
+
+    public function destroy(User $user){
+        $user->delete();
+        return back()->with('message', 'Deleted Successfully');
+    }
     
 }

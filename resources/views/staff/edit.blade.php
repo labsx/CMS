@@ -29,7 +29,7 @@
                 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Fill up</p>
                 
-                                <form class="mx-1 mx-md-8" action="edit/{{$user->id}}" method="POST">
+                                <form class="mx-1 mx-md-8" action="/edit/{{$user->id}}" method="POST">
                                   @csrf
                                   @method('PUT')
                 
@@ -62,7 +62,7 @@
                                       <div class="form-outline flex-fill mb-0">
                                         <input type="password" name="password" class="form-control"  placeholder="Password" value="{{$user->password}}"/>
                                         <div>
-                                            @error('guardian')
+                                            @error('password')
                                              <p style="font-size: x-small"  class=" text-danger mb-3 text-right">{{$message}}</p>
                                              @enderror
                                         </div>

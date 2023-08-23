@@ -39,7 +39,12 @@
                           <td>{{$user->email}}</td>
                           <td>{{$user->password}}</td>
                           <td class=""><a class="btn btn-primary btn-sm col-11 mt-0" 
-                              href="edit/{{$user->id}}" role="button">Edit</a>         
+                              href="/edit/{{$user->id}}" role="button">Edit</a>    
+                              <form action="/delete/{{$user->id}}" method="POST" class="mt-1 mb-0 ">
+                                @csrf
+                                @method ('delete')  
+                                  <button type="submit" class="btn btn-danger btn-sm col-11" role="button">Delete</button>
+                              </form>      
                           </td>
                       </tr>
                         @endforeach
