@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/login.css">
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body class="">
+  <body class="">
         <div class="container">
             <div class="row">
               <div class="col-md-6 offset-md-3 ">
@@ -42,6 +42,18 @@
                        <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button></div>
                     <div>
                   </div> 
+
+                  <div class="">
+                    @if (session()->has('message'))
+                        <div x-data="{ show: true }"
+                            x-init="setTimeout(() => show = false, 4000)"
+                            x-show="show"
+                            class=" bg-danger text-white px-1 py-1 text-sm col-12 text-center ">
+                            <p class="mt-3">{{session()->get('message')}}</p>
+                        </div>
+                    @endif
+                </div>
+                
                 </form>
                </div>
               </div>
